@@ -1,0 +1,1 @@
+Transform QT ui to python script: pyuic4 browser.ui > browser.py

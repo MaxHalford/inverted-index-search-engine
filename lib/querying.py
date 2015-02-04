@@ -2,7 +2,6 @@ from math import log, sqrt
 from snowballstemmer import FrenchStemmer as fs
 from nltk.corpus import stopwords
 import re
-import pprint
 
 def cleanQuery(string):
     frenchStopWords = stopwords.words('french')
@@ -34,10 +33,9 @@ def logarithmic(index, words):
                 rankings[document] = TF * DF
             else:
                 rankings[document] += TF * DF
-    # Display ordered results in a neat way
-    pp = pprint.PrettyPrinter()
-    pp.pprint(sorted(rankings.items(), key=lambda x: x[1]))
-
+    # Order results according to the scores
+    rankings = sorted(rankings.items(), key=lambda x: x[1])
+    return rankings
 
 # #def logarithmic(index, words):
 # #    # Assign weights to the words
