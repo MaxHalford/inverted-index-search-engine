@@ -5,7 +5,7 @@ sys.path.append(libpath)
 os.chdir(projectpath)
 from PyQt4 import QtCore, QtGui
 from browser import Ui_MainWindow
-from querying import cleanQuery, logarithmic
+from querying import cleanQuery, rankDocuments
 from pymongo import MongoClient
 
 # Connect to the database containing inverted indexes
@@ -32,9 +32,9 @@ class browser(QtGui.QMainWindow):
         for word in words:
             index[word] = collection.find({'_id' : word})[0]['info']
         # Rank the documents according to the query
-        results = logarithmic(index, words)
+        results = rankDocuments(index, words)
         for result in results:
-            self.ui.listWidget.addItem(str(result))
+            self.ui.listWidget.addItem(result[0]+' : '+str(round(result[1], 2)))
             
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
