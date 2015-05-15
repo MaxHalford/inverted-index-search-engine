@@ -1,7 +1,3 @@
-<<<<<<< d8d0c578f026e06cf7ac2487ed4a52aaf7cdd816
-# Inverted-Index
-An inverted index is the basis of any search engine. I made this in preparation of the search engine my school assigned us in 2015. In this example I indexed the New Testament and stored the index with MongoDB (which proved perfect for this use case!). I implemented a very simple search engine, it returns a list of documents (in this case chapters of the New Testament) with a score assigned to each document based on the query. The UI is based on PyQt so you will have to download Qt Designer in order to modify everything related to the UI but also to launch it, indeed I haven't compiled it into an independant application.
-=======
 # Inverted index
 
 ## Theory
